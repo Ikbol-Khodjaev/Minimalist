@@ -1,0 +1,64 @@
+@use "../fonts";
+@use "../variable";
+@use "../mixin";
+.header_items{
+    @include mixin.flex;
+}
+.nav__logo{
+    text-decoration: none;
+    color: #000;
+    font-size: 40px;
+}
+.nav__ul{
+    flex-basis: 30%;
+    list-style-type: none;
+    @include mixin.flex;
+}
+.ul_list .list_link{
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+}
+.burger{
+    display: none;
+}
+.burger p{
+    width: 30px;
+    height: 2.5px;
+    background: gray;
+    margin-bottom: 5px;
+}
+@include mixin.media(1250px){
+    .container{
+        max-width: 1250px;
+    }
+}
+@include mixin.media(1000px){
+    .header_items{
+        position: relative;
+    }
+    .nav__ul{
+        position: absolute;
+        align-items: center;
+        padding: 1rem 0.5rem;
+        right: 0;
+        background: #000;
+        top: 2.9rem;
+        flex-direction: column;
+        height: 180px;
+        width: 25%;
+        transform: translateX(105%);
+        opacity: 0;
+        transition: 0.5s ease all;
+    }
+    .active_nav__ul{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    .ul_list .list_link{
+        color: #fff;
+    }
+    .burger{
+        display: block;
+    }
+}
